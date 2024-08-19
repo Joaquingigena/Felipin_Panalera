@@ -8,5 +8,7 @@
         public DateTime Fecha { get; set; }
         public string? Nombre { get; set; }
         public string? DatosContacto { get; set; }
+        public List<DetallePedido> DetallePedidos { get; set; } = null!;
+        
     }
 }
