@@ -1,4 +1,8 @@
 using FelipinPañalera.Data;
+using FelipinPañalera.Interfaces;
+using FelipinPañalera.Repository;
+using FelipinPañalera.Services;
+using FelipinPañalera.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +15,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer("name=FelipinConnection"));
+
+//Repositorios
+builder.Services.AddScoped<CategoriaRepository>();
+
+//Services
+builder.Services.AddScoped<ICategoriaService,CategoriaService>();
 
 var app = builder.Build();
 

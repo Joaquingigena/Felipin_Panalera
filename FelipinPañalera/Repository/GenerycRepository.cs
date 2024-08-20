@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore;
 namespace FelipinPañalera.Repository
 {
     public abstract class GenerycRepository <TEntidad,TContexto> : IGenerycRepository<TEntidad>
-        where TContexto : ApplicationDbContext
+        where TContexto : DbContext
         where TEntidad: class
     {
-        public readonly ApplicationDbContext _context;
+        public readonly DbContext _context;
 
-        public GenerycRepository(ApplicationDbContext context)
+        public GenerycRepository(DbContext context)
         {
             _context = context;
         }
