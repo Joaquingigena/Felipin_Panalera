@@ -1,8 +1,8 @@
 ﻿using FelipinPañalera.Models;
 
-namespace FelipinPañalera.Interfaces
+namespace FelipinPañalera.Repository.Interfaces
 {
-    public interface ICategoriaRepository
+    public interface ICategoriaRepository : IGenerycRepository<Categoria>
     {
         //public Task<List<Categoria>> Listar();
         //public Task<bool> Crear(Categoria categoria);

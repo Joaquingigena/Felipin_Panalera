@@ -1,5 +1,5 @@
 ﻿using FelipinPañalera.Data;
-using FelipinPañalera.Interfaces;
+using FelipinPañalera.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace FelipinPañalera.Repository
@@ -81,7 +81,7 @@ namespace FelipinPañalera.Repository
                     return "No se encontro.";
                 }
 
-                _context.Set<TEntidad>().Update(entidad);
+                _context.Entry(obj).CurrentValues.SetValues(entidad);
                 await _context.SaveChangesAsync();
 
                 return "OK";

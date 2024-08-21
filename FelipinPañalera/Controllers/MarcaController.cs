@@ -8,30 +8,30 @@ namespace FelipinPañalera.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriaController : ControllerBase
+    public class MarcaController : ControllerBase
     {
+        public readonly IMarcaService _service;
 
-        public readonly ICategoriaService _categoriaService;
-
-        public CategoriaController(ICategoriaService categoriaService)
+        public MarcaController(IMarcaService service)
         {
-            _categoriaService = categoriaService;
+            _service = service;
         }
+
 
         [HttpGet]
         [Route("Listar")]
-        public async Task<ActionResult<List<Categoria>>> Listar()
+        public async Task<ActionResult<List<Marca>>> Listar()
         {
-            var lista = await _categoriaService.Listar();
+            var lista = await _service.Listar();
 
             return Ok(lista);
         }
 
         [HttpPost]
         [Route("Agregar")]
-        public async Task<ActionResult> Crear(Categoria categoria)
+        public async Task<ActionResult> Crear(Marca marca)
         {
-            var rta = await _categoriaService.Crear(categoria);
+            var rta = await _service.Crear(marca);
 
             if (rta != "OK")
             {
@@ -43,26 +43,26 @@ namespace FelipinPañalera.Controllers
 
         [HttpGet]
         [Route("ObtenerUna/{id:int}")]
-        public async Task<ActionResult<Categoria>> ObtenerUnar(int id)
+        public async Task<ActionResult<Marca>> ObtenerUnar(int id)
         {
             try
             {
-                var categoria = await _categoriaService.ObtenerUna(id);
+                var marca = await _service.ObtenerUna(id);
 
-                return Ok(categoria);
+                return Ok(marca);
             }
             catch (Exception ex)
             {
                 return NotFound(ex.ToString());
-                
+
             }
         }
 
         [HttpPut]
         [Route("Modificar")]
-        public async Task<ActionResult> Modificar(int id,Categoria categoria)
+        public async Task<ActionResult> Modificar(int id, Marca marca)
         {
-            var rta = await _categoriaService.Modificar(id,categoria);
+            var rta = await _service.Modificar(id, marca);
 
             if (rta != "OK")
             {
@@ -76,7 +76,7 @@ namespace FelipinPañalera.Controllers
         [Route("Eliminar/{id:int}")]
         public async Task<ActionResult> Eliminar(int id)
         {
-            var rta = await _categoriaService.Eliminar(id);
+            var rta = await _service.Eliminar(id);
 
             if (rta != "OK")
             {

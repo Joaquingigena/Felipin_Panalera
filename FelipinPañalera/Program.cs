@@ -1,6 +1,7 @@
 using FelipinPañalera.Data;
-using FelipinPañalera.Interfaces;
+using FelipinPañalera.Models;
 using FelipinPañalera.Repository;
+using FelipinPañalera.Repository.Interfaces;
 using FelipinPañalera.Services;
 using FelipinPañalera.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -17,10 +18,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer("name=FelipinConnection"));
 
 //Repositorios
-builder.Services.AddScoped<CategoriaRepository>();
+builder.Services.AddScoped<ICategoriaRepository,CategoriaRepository>();
+builder.Services.AddScoped<IMarcaRepository, MarcaRepository>();
 
 //Services
 builder.Services.AddScoped<ICategoriaService,CategoriaService>();
+builder.Services.AddScoped<IMarcaService,MarcaService>();
 
 var app = builder.Build();
 

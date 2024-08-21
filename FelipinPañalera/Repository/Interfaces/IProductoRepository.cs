@@ -1,4 +1,4 @@
-﻿namespace FelipinPañalera.Interfaces
+﻿namespace FelipinPañalera.Repository.Interfaces
 {
     public class IProductoRepository
     {

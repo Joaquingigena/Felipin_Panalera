@@ -1,38 +1,42 @@
 ﻿using FelipinPañalera.Models;
 using FelipinPañalera.Repository;
+using FelipinPañalera.Repository.Interfaces;
 using FelipinPañalera.Services.Interfaces;
 
 namespace FelipinPañalera.Services
 {
     public class CategoriaService : ICategoriaService
     {
-        public readonly CategoriaRepository _repositorio;
+        public readonly ICategoriaRepository _repositorio;
 
-        public CategoriaService(CategoriaRepository repositorio)
+        public CategoriaService(ICategoriaRepository repositorio)
         {
             _repositorio = repositorio;
         }
 
-        public Task<string> Eliminar { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public Task<string> Crear(Categoria categoria)
+        public async Task<string> Eliminar(int id)
         {
-            return _repositorio.Crear(categoria);
+            return await _repositorio.Eliminar(id);
         }
 
-        public Task<List<Categoria>> Listar()
+        public async Task<string> Crear(Categoria categoria)
         {
-            return _repositorio.Listar();
+            return await _repositorio.Crear(categoria);
         }
 
-        public Task<string> Modificar(int Id,Categoria categoria)
+        public async Task<List<Categoria>> Listar()
         {
-            return _repositorio.Modificar(Id, categoria);
+            return await _repositorio.Listar();
         }
 
-        public Task<Categoria> ObtenerUna(int id)
+        public async Task<string> Modificar(int Id,Categoria categoria)
         {
-            return _repositorio.ObtenerUno(id);
+            return await _repositorio.Modificar(Id, categoria);
+        }
+
+        public async Task<Categoria> ObtenerUna(int id)
+        {
+            return await _repositorio.ObtenerUno(id);
         }
     }
 }
