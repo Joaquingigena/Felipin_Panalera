@@ -1,4 +1,6 @@
-﻿using FelipinPañalera.Models;
+﻿using AutoMapper;
+using FelipinPañalera.DTOs;
+using FelipinPañalera.Models;
 using FelipinPañalera.Repository;
 using FelipinPañalera.Repository.Interfaces;
 using FelipinPañalera.Services.Interfaces;
@@ -8,10 +10,12 @@ namespace FelipinPañalera.Services
     public class CategoriaService : ICategoriaService
     {
         public readonly ICategoriaRepository _repositorio;
+        public readonly IMapper _mapper;
 
-        public CategoriaService(ICategoriaRepository repositorio)
+        public CategoriaService(ICategoriaRepository repositorio,IMapper mapper)
         {
             _repositorio = repositorio;
+            _mapper = mapper;
         }
 
         public async Task<string> Eliminar(int id)
@@ -24,9 +28,10 @@ namespace FelipinPañalera.Services
             return await _repositorio.Crear(categoria);
         }
 
-        public async Task<List<Categoria>> Listar()
+        public async Task<List<CategoriaDTO>> Listar()
         {
-            return await _repositorio.Listar();
+            return  _mapper.Map<List<CategoriaDTO>>( await _repositorio.Listar());
+            
         }
 
         public async Task<string> Modificar(int Id,Categoria categoria)
@@ -34,9 +39,9 @@ namespace FelipinPañalera.Services
             return await _repositorio.Modificar(Id, categoria);
         }
 
-        public async Task<Categoria> ObtenerUna(int id)
+        public async Task<CategoriaDTO> ObtenerUna(int id)
         {
-            return await _repositorio.ObtenerUno(id);
+            return _mapper.Map<CategoriaDTO>(await _repositorio.ObtenerUno(id));
         }
     }
 }

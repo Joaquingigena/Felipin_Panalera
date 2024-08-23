@@ -74,3 +74,5 @@ C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\ob
 C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\FelipinPañalera.pdb
 C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\FelipinPañalera.genruntimeconfig.cache
 C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\ref\FelipinPañalera.dll
+C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -1,4 +1,5 @@
-﻿using FelipinPañalera.Models;
+﻿using FelipinPañalera.DTOs;
+using FelipinPañalera.Models;
 using FelipinPañalera.Services;
 using FelipinPañalera.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -20,7 +21,7 @@ namespace FelipinPañalera.Controllers
 
         [HttpGet]
         [Route("Listar")]
-        public async Task<ActionResult<List<Categoria>>> Listar()
+        public async Task<ActionResult<List<CategoriaDTO>>> Listar()
         {
             var lista = await _categoriaService.Listar();
 
@@ -43,7 +44,7 @@ namespace FelipinPañalera.Controllers
 
         [HttpGet]
         [Route("ObtenerUna/{id:int}")]
-        public async Task<ActionResult<Categoria>> ObtenerUnar(int id)
+        public async Task<ActionResult<CategoriaDTO>> ObtenerUnar(int id)
         {
             try
             {

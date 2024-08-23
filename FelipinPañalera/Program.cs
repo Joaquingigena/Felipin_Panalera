@@ -1,9 +1,11 @@
+using AutoMapper;
 using FelipinPañalera.Data;
 using FelipinPañalera.Models;
 using FelipinPañalera.Repository;
 using FelipinPañalera.Repository.Interfaces;
 using FelipinPañalera.Services;
 using FelipinPañalera.Services.Interfaces;
+using FelipinPañalera.Utility;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +26,16 @@ builder.Services.AddScoped<IMarcaRepository, MarcaRepository>();
 //Services
 builder.Services.AddScoped<ICategoriaService,CategoriaService>();
 builder.Services.AddScoped<IMarcaService,MarcaService>();
+
+//AutoMapper
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AllowNullCollections = true;
+    mc.ShouldMapMethod = (m => false);//this is solution
+    mc.AddProfile(new AutoMapperProfiles());
+});
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 
