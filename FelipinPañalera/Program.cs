@@ -22,10 +22,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 //Repositorios
 builder.Services.AddScoped<ICategoriaRepository,CategoriaRepository>();
 builder.Services.AddScoped<IMarcaRepository, MarcaRepository>();
+builder.Services.AddScoped<IUsuarioRepository,UsuarioRepository>();
 
 //Services
 builder.Services.AddScoped<ICategoriaService,CategoriaService>();
 builder.Services.AddScoped<IMarcaService,MarcaService>();
+builder.Services.AddScoped<IUsuarioService,UsuarioService>();
 
 //AutoMapper
 var mapperConfig = new MapperConfiguration(mc =>

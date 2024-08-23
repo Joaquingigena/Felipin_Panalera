@@ -1,6 +1,8 @@
-﻿namespace FelipinPañalera.Repository.Interfaces
+﻿using FelipinPañalera.Models;
+
+namespace FelipinPañalera.Repository.Interfaces
 {
-    public interface IUsuarioRepository
+    public interface IUsuarioRepository : IGenerycRepository<Usuario>
     {
     }
 }

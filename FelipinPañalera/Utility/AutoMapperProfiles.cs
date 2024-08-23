@@ -13,6 +13,9 @@ namespace FelipinPañalera.Utility
 
             CreateMap<MarcaDTO, Marca>()
                 .ReverseMap();
+
+            CreateMap<UsuarioDTO, Usuario>()
+                .ReverseMap();
         
         }
     }
