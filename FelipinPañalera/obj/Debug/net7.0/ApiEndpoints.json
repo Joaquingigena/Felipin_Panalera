@@ -207,7 +207,7 @@
     "Parameters": [
       {
         "Name": "producto",
-        "Type": "FelipinPa\u00F1alera.Models.Producto",
+        "Type": "FelipinPa\u00F1alera.DTOs.ProductoCreacionDTO",
         "IsRequired": true
       }
     ],
@@ -264,7 +264,7 @@
       },
       {
         "Name": "producto",
-        "Type": "FelipinPa\u00F1alera.Models.Producto",
+        "Type": "FelipinPa\u00F1alera.DTOs.ProductoCreacionDTO",
         "IsRequired": true
       }
     ],

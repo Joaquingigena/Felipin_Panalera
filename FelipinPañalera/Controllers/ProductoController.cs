@@ -28,7 +28,7 @@ namespace FelipinPañalera.Controllers
 
         [HttpPost]
         [Route("Agregar")]
-        public async Task<ActionResult> Crear(Producto producto)
+        public async Task<ActionResult> Crear(ProductoCreacionDTO producto)
         {
             var rta = await _productoService.Crear(producto);
 
@@ -59,7 +59,7 @@ namespace FelipinPañalera.Controllers
 
         [HttpPut]
         [Route("Modificar")]
-        public async Task<ActionResult> Modificar(int id, Producto producto)
+        public async Task<ActionResult> Modificar(int id, ProductoCreacionDTO producto)
         {
             var rta = await _productoService.Modificar(id, producto);
 

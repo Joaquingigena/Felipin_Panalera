@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FelipinPañalera")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a06298c1cf85b563ea930ade5db559fcc1ba70b9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7a70418ab6d530af9c7d650935310b9f1906588")]
 [assembly: System.Reflection.AssemblyProductAttribute("FelipinPañalera")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FelipinPañalera")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

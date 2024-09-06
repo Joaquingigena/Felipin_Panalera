@@ -26,9 +26,22 @@ namespace FelipinPañalera.Utility
                 .ReverseMap();
 
 
-            CreateMap<ProductoDTO,Producto>()
+            CreateMap<Producto, ProductoDTO>()
+                .ForMember(ent => ent.NombreMarca,
+                dto => dto.MapFrom(origen => origen.Marca.Nombre))
+                .ForMember(ent => ent.NombreCategoria,
+                dto => dto.MapFrom(origen => origen.Categoria.Nombre));
+
+
+            CreateMap<Producto, ProductoCreacionDTO>()
                 .ReverseMap();
-        
+
+
+            //CreateMap<Movimiento, MovimientoDTO>()
+            // .ForMember(ent => ent.DescripcionTipoMovimiento,
+            // dto => dto.MapFrom(origen => origen.TipoMovimiento.Nombre))
+            // .ForMember(ent => ent.DescripcionCategoria,
+            // dto => dto.MapFrom(origen => origen.Categoria.Nombre));
         }
     }
 }

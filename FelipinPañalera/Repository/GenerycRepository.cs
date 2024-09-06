@@ -99,6 +99,10 @@ namespace FelipinPañalera.Repository
             try
             {
                 var entidad= await _context.Set<TEntidad>().FindAsync(id);
+                if (entidad == null)
+                {
+                    return null;
+                }
 
                 return entidad;
             }
