@@ -1,6 +1,5 @@
 ﻿using FelipinPañalera.DTOs;
 using FelipinPañalera.Models;
-using FelipinPañalera.Services;
 using FelipinPañalera.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,30 +8,29 @@ namespace FelipinPañalera.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MarcaController : ControllerBase
+    public class ProductoController : ControllerBase
     {
-        public readonly IMarcaService _service;
+        public readonly IProductoService _productoService;
 
-        public MarcaController(IMarcaService service)
+        public ProductoController(IProductoService productoService)
         {
-            _service = service;
+            _productoService = productoService;
         }
-
 
         [HttpGet]
         [Route("Listar")]
-        public async Task<ActionResult<List<MarcaDTO>>> Listar()
+        public async Task<ActionResult<List<ProductoDTO>>> Listar()
         {
-            var lista = await _service.Listar();
+            var lista = await _productoService.Listar();
 
             return Ok(lista);
         }
 
         [HttpPost]
         [Route("Agregar")]
-        public async Task<ActionResult> Crear(MarcaCreacionDTO marca)
+        public async Task<ActionResult> Crear(Producto producto)
         {
-            var rta = await _service.Crear(marca);
+            var rta = await _productoService.Crear(producto);
 
             if (rta != "OK")
             {
@@ -43,19 +41,14 @@ namespace FelipinPañalera.Controllers
         }
 
         [HttpGet]
-        [Route("ObtenerUna/{id:int}")]
-        public async Task<ActionResult<MarcaDTO>> ObtenerUna(int id)
+        [Route("ObtenerUno/{id:int}")]
+        public async Task<ActionResult<ProductoDTO>> ObtenerUno(int id)
         {
             try
             {
-                var marca = await _service.ObtenerUna(id);
+                var producto = await _productoService.ObtenerUna(id);
 
-                if(marca == null)
-                {
-                    return NotFound();
-                }
-
-                return Ok(marca);
+                return Ok(producto);
             }
             catch (Exception ex)
             {
@@ -66,9 +59,9 @@ namespace FelipinPañalera.Controllers
 
         [HttpPut]
         [Route("Modificar")]
-        public async Task<ActionResult> Modificar(int id, MarcaCreacionDTO marca)
+        public async Task<ActionResult> Modificar(int id, Producto producto)
         {
-            var rta = await _service.Modificar(id, marca);
+            var rta = await _productoService.Modificar(id, producto);
 
             if (rta != "OK")
             {
@@ -82,7 +75,7 @@ namespace FelipinPañalera.Controllers
         [Route("Eliminar/{id:int}")]
         public async Task<ActionResult> Eliminar(int id)
         {
-            var rta = await _service.Eliminar(id);
+            var rta = await _productoService.Eliminar(id);
 
             if (rta != "OK")
             {

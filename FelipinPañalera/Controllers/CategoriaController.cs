@@ -30,7 +30,7 @@ namespace FelipinPañalera.Controllers
 
         [HttpPost]
         [Route("Agregar")]
-        public async Task<ActionResult> Crear(Categoria categoria)
+        public async Task<ActionResult> Crear(CategoriaCreacionDTO categoria)
         {
             var rta = await _categoriaService.Crear(categoria);
 
@@ -50,6 +50,11 @@ namespace FelipinPañalera.Controllers
             {
                 var categoria = await _categoriaService.ObtenerUna(id);
 
+                if(categoria == null)
+                {
+                    return NotFound();
+                }
+
                 return Ok(categoria);
             }
             catch (Exception ex)
@@ -61,7 +66,7 @@ namespace FelipinPañalera.Controllers
 
         [HttpPut]
         [Route("Modificar")]
-        public async Task<ActionResult> Modificar(int id,Categoria categoria)
+        public async Task<ActionResult> Modificar(int id,CategoriaCreacionDTO categoria)
         {
             var rta = await _categoriaService.Modificar(id,categoria);
 

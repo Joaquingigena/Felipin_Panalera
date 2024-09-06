@@ -1,6 +1,8 @@
-﻿namespace FelipinPañalera.Repository.Interfaces
+﻿using FelipinPañalera.Models;
+
+namespace FelipinPañalera.Repository.Interfaces
 {
-    public class IProductoRepository
+    public interface IProductoRepository : IGenerycRepository<Producto>
     {
     }
 }

@@ -17,11 +17,13 @@ namespace FelipinPañalera.Services
             _mapper = mapper;
         }
 
-        public async Task<string> Crear(Usuario usuario)
+        public async Task<string> Crear(UsuarioCreacionDTO usuario)
         {
             try
             {
-                return await _repositorio.Crear(usuario);
+                var user= _mapper.Map<Usuario>(usuario);
+
+                return await _repositorio.Crear(user);
             }
             catch (Exception)
             {
@@ -56,11 +58,14 @@ namespace FelipinPañalera.Services
             }
         }
 
-        public async Task<string> Modificar(int Id, Usuario usuario)
+        public async Task<string> Modificar(int Id, UsuarioCreacionDTO usuario)
         {
             try
             {
-                return await _repositorio.Modificar(Id, usuario);
+                var user = _mapper.Map<Usuario>(usuario);
+                
+                user.Id = Id;
+                return await _repositorio.Modificar(Id, user);
             }
             catch (Exception)
             {

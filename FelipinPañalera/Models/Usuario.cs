@@ -10,4 +10,6 @@
         public string Telefono { get; set; } = null!;
         public int Rol { get; set; }
     }
+
+  
 }

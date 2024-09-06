@@ -68,7 +68,6 @@ C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\ob
 C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\staticwebassets.development.json
 C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\scopedcss\bundle\FelipinPañalera.styles.css
-C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\FelipinPañalera.csproj.CopyComplete
 C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\FelipinPañalera.dll
 C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\refint\FelipinPañalera.dll
 C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\FelipinPañalera.pdb
@@ -76,3 +75,8 @@ C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\ob
 C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\ref\FelipinPañalera.dll
 C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\bin\Debug\net7.0\FelipinPañalera.staticwebassets.endpoints.json
+C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\FelipinPañalera.sourcelink.json
+C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\staticwebassets.build.endpoints.json
+C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\staticwebassets\msbuild.FelipinPañalera.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\joaquin gigena\OneDrive\Documentos\FelipinPañalera\FelipinPañalera\obj\Debug\net7.0\FelipinP.B7AD787D.Up2Date

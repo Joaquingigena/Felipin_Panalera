@@ -23,9 +23,11 @@ namespace FelipinPañalera.Services
             return await _repositorio.Eliminar(id);
         }
 
-        public async Task<string> Crear(Categoria categoria)
+        public async Task<string> Crear(CategoriaCreacionDTO categoria)
         {
-            return await _repositorio.Crear(categoria);
+            var cat= _mapper.Map<Categoria>(categoria);
+
+            return await _repositorio.Crear(cat);
         }
 
         public async Task<List<CategoriaDTO>> Listar()
@@ -34,9 +36,13 @@ namespace FelipinPañalera.Services
             
         }
 
-        public async Task<string> Modificar(int Id,Categoria categoria)
+        public async Task<string> Modificar(int Id,CategoriaCreacionDTO categoria)
         {
-            return await _repositorio.Modificar(Id, categoria);
+            var cat = _mapper.Map<Categoria>(categoria);
+
+            cat.Id = Id;
+
+            return await _repositorio.Modificar(Id, cat);
         }
 
         public async Task<CategoriaDTO> ObtenerUna(int id)

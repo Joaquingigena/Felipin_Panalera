@@ -76,10 +76,11 @@ namespace FelipinPañalera.Repository
             {
                 var obj = await _context.Set<TEntidad>().FindAsync(id);
 
-                if (entidad == null)
+                if (obj == null)
                 {
                     return "No se encontro.";
                 }
+                
 
                 _context.Entry(obj).CurrentValues.SetValues(entidad);
                 await _context.SaveChangesAsync();

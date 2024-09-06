@@ -22,18 +22,22 @@ namespace FelipinPañalera.Services
             return _repositorio.Eliminar (id);
         }
 
-        public Task<string> Crear(Marca marca)
+        public Task<string> Crear(MarcaCreacionDTO marca)
         {
-            return _repositorio.Crear(marca);
+            var mar= _mapper.Map<Marca> (marca);
+            return _repositorio.Crear(mar);
         }
 
         public async Task<List<MarcaDTO>> Listar()
         {
             return _mapper.Map<List<MarcaDTO>>(await _repositorio.Listar());
         }
-        public Task<string> Modificar(int Id, Marca marca)
+        public Task<string> Modificar(int Id, MarcaCreacionDTO marca)
         {
-            return _repositorio.Modificar(Id, marca);
+            var mar = _mapper.Map<Marca>(marca);
+
+            mar.Id = Id;
+            return _repositorio.Modificar(Id, mar);
         }
 
         public async Task<MarcaDTO> ObtenerUna(int id)
