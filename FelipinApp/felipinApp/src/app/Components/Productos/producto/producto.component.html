@@ -1,0 +1,18 @@
+<h2>Productos</h2>
+
+<ng-container contenido>
+    <div class="productoContenedor">
+        @for (producto of productos; track $index) {
+                <div class="producto">
+                    <div>
+                        <img [src]="producto.img" height="250">
+                    </div>
+                    <p>{{producto.nombre}}</p>
+                    <p>{{producto.descripcion}}</p>
+                    <p>{{producto.precio}}</p>
+                    <button mat-raised-button>Modificar</button>
+                    <button mat-raised-button>Eliminar</button>
+                </div>
+        }
+    </div>
+</ng-container>

@@ -5,11 +5,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [MatIconModule,MatToolbarModule,MatButtonModule,MatInputModule,MatFormFieldModule,FormsModule],
+  imports: [MatIconModule,MatToolbarModule,MatButtonModule,MatInputModule,MatFormFieldModule,FormsModule,RouterLink],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })

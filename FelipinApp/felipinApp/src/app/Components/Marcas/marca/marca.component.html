@@ -1,0 +1,18 @@
+<h2>Marcas</h2>
+
+<form (submit)="guardarCambios()" [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput [formControl]="form.controls.nombre">
+        <mat-error>El campo nombre es requerido</mat-error>
+    </mat-form-field>
+
+    <div class="botones">
+        <button mat-flat-button type="submit" [disabled]="form.invalid">Agregar marca</button>
+        <button mat-stroked-button >Cancelar</button>
+    </div>
+
+</form>
+
+
+<h4>Listado de Marcas</h4>

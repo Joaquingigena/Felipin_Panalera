@@ -1,23 +1,41 @@
 <mat-toolbar class="barra-color">
     <mat-toolbar-row>
+
         <h1>Felipin</h1>
-        <button mat-icon-button >
+        <button mat-icon-button routerLink="productos" >
             <mat-icon>menu</mat-icon>
         </button>
 
-        <mat-form-field class="example-form-field">
-            <mat-label>Clearable input</mat-label>
-            <input matInput type="text" >
+        <a mat-button routerLink="categorias">
+            Categorias
+        </a>
+
+        <a mat-button routerLink="marcas">
+            Marcas
+        </a>
+
+        <span style="flex: 1 1 auto;"></span>
+
+        <mat-form-field  appearance="fill">
+            <mat-label>Buscar</mat-label>
+            <input matInput placeholder="Buscar..." type="text" >
+            <button mat-icon-button matSuffix>
+                <mat-icon>search</mat-icon>
+            </button>
         </mat-form-field>
 
         <span style="flex: 1 1 auto;"></span>
+
         <div class="user-info">
             <label class="user-name">
                     <mat-icon>shopping_cart</mat-icon>
             </label>
-            <label class="user-name">
+            <label routerLink="login" class="user-name">
                     <mat-icon>person</mat-icon>
             </label>
+            <a mat-button routerLink="login">
+                <mat-icon>person</mat-icon>
+            </a>
             <button title="Cerrar Sesion" mat-icon-button>
                 <mat-icon >logout</mat-icon>
             </button>
