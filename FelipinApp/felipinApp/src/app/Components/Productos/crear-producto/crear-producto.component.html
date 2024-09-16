@@ -1,1 +1,29 @@
-<p>crear-producto works!</p>
+<h2>Crear producto</h2>
+
+<form [formGroup]="formularioProducto" (ngSubmit)="crearProducto()">
+
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" [formControl]="formularioProducto.controls.nombre">
+        <mat-error>Este campo no puede estar vacio</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Descripcion</mat-label>
+        <input matInput type="text" [formControl]="formularioProducto.controls.descripcion">
+        <mat-error>Este campo no puede estar vacio</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Precio</mat-label>
+        <input matInput type="text" [formControl]="formularioProducto.controls.precio">
+        <mat-error>Este campo no puede estar vacio</mat-error>
+    </mat-form-field>
+    <div>
+        <app-input-img (archivoSeleccionado)="archivoSeleccionado($event)"></app-input-img>
+    </div>
+  
+    <div class="botones">
+        <button mat-flat-button type="submit" [disabled]="formularioProducto.invalid">Crear producto</button>
+        <a mat-stroked-button routerLink="/actores">Cancelar</a>
+    </div>
+
+</form>

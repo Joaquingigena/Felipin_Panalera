@@ -1,5 +1,9 @@
 <h2>Productos</h2>
 
+<div>
+    <button mat-flat-button (click)="crearProducto()">Crear nuevo producto</button>
+</div>
+
 <ng-container contenido>
     <div class="productoContenedor">
         @for (producto of productos; track $index) {

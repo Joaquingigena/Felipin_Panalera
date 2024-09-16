@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-producto',
   standalone: true,
-  imports: [MatButtonModule],
+  imports: [MatButtonModule,RouterLink],
   templateUrl: './producto.component.html',
   styleUrl: './producto.component.css'
 })
 export class ProductoComponent {
+
+  private router= inject(Router);
 
   productos= [
     {
@@ -34,5 +38,9 @@ export class ProductoComponent {
     }
   ];
 
+  crearProducto(){
+    
+    this.router.navigate(["/crearProducto"]);
+  }
 }
 

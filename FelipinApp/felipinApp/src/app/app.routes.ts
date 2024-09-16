@@ -14,7 +14,7 @@ export const routes: Routes = [
     {path:"categorias",component:CategoriaComponent},
     {path:"marcas", component:MarcaComponent},
     {path:"productos",component:ProductoComponent},
-    {path:"crearProductos",component:CrearProductoComponent},
+    {path:"crearProducto",component:CrearProductoComponent},
     {path:"detalleProducto/:id",component:DetalleProductoComponent},
     {path:"modificarProducto/:id",component:ModificarProductoComponent},
     {path:"**",redirectTo:""}

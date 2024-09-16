@@ -41,6 +41,14 @@ var mapperConfig = new MapperConfiguration(mc =>
 
 builder.Services.AddAutoMapper(typeof(Program));
 
+builder.Services.AddCors(opciones =>
+{
+    opciones.AddDefaultPolicy(opcionesCors =>
+    {
+        opcionesCors.AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -50,6 +58,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
