@@ -27,4 +27,8 @@ export class CategoriaService {
   public eliminar(id:number){
     return this.http.delete(`${this.urlApi}Eliminar/${id}`);
   }
+
+  public modificar(id:number,categoria:categoria){
+    return this.http.put(`${this.urlApi}Modificar/${id}`,categoria);
+  }
 }

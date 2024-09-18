@@ -65,7 +65,7 @@ namespace FelipinPañalera.Controllers
         }
 
         [HttpPut]
-        [Route("Modificar")]
+        [Route("Modificar/{id:int}")]
         public async Task<ActionResult> Modificar(int id,CategoriaCreacionDTO categoria)
         {
             var rta = await _categoriaService.Modificar(id,categoria);

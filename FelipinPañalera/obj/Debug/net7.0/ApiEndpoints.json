@@ -54,7 +54,7 @@
   {
     "ContainingType": "FelipinPa\u00F1alera.Controllers.CategoriaController",
     "Method": "Modificar",
-    "RelativePath": "api/Categoria/Modificar",
+    "RelativePath": "api/Categoria/Modificar/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -62,7 +62,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "categoria",
