@@ -22,3 +22,8 @@ mat-form-field {
 .botones{
     margin-top: 1rem;
 }
+
+.titulo{
+    text-align: center;
+    margin: 30px;
+}

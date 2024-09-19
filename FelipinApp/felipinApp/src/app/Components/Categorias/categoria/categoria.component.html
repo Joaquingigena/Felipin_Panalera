@@ -1,8 +1,10 @@
-<h2>Categorias</h2>
+<h2 class="titulo">Categorias</h2>
 
-<button (click)="cambiarVisibilidad()" mat-flat-button>Agregar categoria</button>
-@if (formVisible) {
-    <div>
+<mat-accordion class="acordion">
+    <mat-expansion-panel  >
+        <mat-expansion-panel-header>
+            <button mat-flat-button>Agregar Categoria</button>
+        </mat-expansion-panel-header>
         <form (submit)="guardarCambios()" [formGroup]="form">
             <mat-form-field appearance="outline">
                 <mat-label>Nombre</mat-label>
@@ -12,12 +14,11 @@
     
             <div class="botones">
                 <button mat-flat-button type="submit" [disabled]="form.invalid">Guardar</button>
-                <button mat-stroked-button (click)="cambiarVisibilidad()" >Cancelar</button>
+                <button mat-stroked-button (click)="accordion().closeAll()" >Cancelar</button>
             </div>
         </form>
-    </div>
-}
-
+    </mat-expansion-panel>
+</mat-accordion>
 
 
 <h4>Listado de categorias</h4>
@@ -52,6 +53,8 @@
             <tr mat-header-row *matHeaderRowDef="nombresColumnas"></tr>
             <tr mat-row *matRowDef="let row;columns: nombresColumnas"></tr>
         </table>
+
+        <mat-paginator showFirstLastButtons [length]="cantidadCategorias" [pageSize]="5" [pageSizeOptions]="[5,10,50]" class="mat-elevation-z8"></mat-paginator>
     </ng-container>
 }
 

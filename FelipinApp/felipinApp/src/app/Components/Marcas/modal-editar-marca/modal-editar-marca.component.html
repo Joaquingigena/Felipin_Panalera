@@ -1,0 +1,13 @@
+<div class="dialog">
+    <h2 mat-dialog-title>Editar marca</h2>
+  <mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput [(ngModel)]="data.nombre" value="{{data.nombre}}" />
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-flat-button [mat-dialog-close]="marca()" cdkFocusInitial>Guardar</button>
+    <button mat-button (click)="cancelar()">Cancelar</button>
+  </mat-dialog-actions>
+  </div>

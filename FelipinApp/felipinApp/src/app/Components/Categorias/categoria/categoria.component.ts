@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit,viewChild } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, RequiredValidator, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,16 +12,20 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalEditarComponent } from '../modal-editar/modal-editar.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatExpansionModule,MatAccordion } from '@angular/material/expansion';
+import { UtilidadService } from '../../../Services/utilidad.service';
+
 
 @Component({
   selector: 'app-categoria',
   standalone: true,
-  imports: [MatButtonModule,RouterLink,MatFormFieldModule,ReactiveFormsModule,MatInputModule,MatTableModule,MatProgressSpinnerModule,SweetAlert2Module],
+  imports: [MatButtonModule,RouterLink,MatFormFieldModule,ReactiveFormsModule,MatInputModule,MatTableModule,MatProgressSpinnerModule,SweetAlert2Module,MatPaginatorModule,MatExpansionModule],
   templateUrl: './categoria.component.html',
   styleUrl: './categoria.component.css'
 })
 export class CategoriaComponent implements OnInit {
-  
 
   private formBuilder= inject(FormBuilder);
   categoriaService= inject(CategoriaService);
@@ -31,7 +35,12 @@ export class CategoriaComponent implements OnInit {
   listaCategorias!: categoria[];
   nombresColumnas: string[]=["Id","Nombre","Acciones"];
   formVisible: boolean=false;
+  cantidadCategorias: number=0;
 
+  accordion = viewChild.required(MatAccordion);
+
+  utilidades= inject(UtilidadService);
+  
   constructor(){}
   
   form= this.formBuilder.group({
@@ -55,35 +64,35 @@ export class CategoriaComponent implements OnInit {
         }
 
         categoria.nombre= result.nombre;
-        this.categoriaService.modificar(categoria.id!,categoria).subscribe({
-          next:() =>{
-            console.log("Modificada correcamente");
-
-            this.listarCategorias();
-          },
-          error:(e)=>{console.log(e)}
-        });
+        this.modificar(categoria);
       }
     );
   }
-  cambiarVisibilidad(){
-    this.formVisible=!this.formVisible;
+
+  modificar(categoria:categoria){
+    this.categoriaService.modificar(categoria.id!,categoria).subscribe({
+      next:() =>{
+        this.utilidades.mostrarAlerta("Categoria modificada exitosamente","Exito");
+        this.listarCategorias();
+      },
+      error:(e)=>{
+        console.log(e)
+        this.utilidades.mostrarAlerta("No se pudo modificar la Categoria","Error");
+      }
+    });
   }
 
   listarCategorias(){
     this.categoriaService.listar().subscribe({
       next: (data)=>{
         this.listaCategorias= data;
-
-        console.log(this.listaCategorias);
+        this.cantidadCategorias= this.listaCategorias.length;
       },
       error: ()=>{}
     });
   }
 
-
   guardarCambios(){
-    
     if (!this.form.valid){
       return;
     }
@@ -92,13 +101,12 @@ export class CategoriaComponent implements OnInit {
 
     this.categoriaService.crear(categoria).subscribe({
       next: ()=>{
-        console.log("Categoria agregada correctamente" )
-
+        this.utilidades.mostrarAlerta("Categoria agregada exitosamente","Exito");
         this.listarCategorias();
-        //Aca hay que agregar algun msj
       },
       error: (e) =>{
         const errores= extraerErrores(e);
+        this.utilidades.mostrarAlerta("No se pudo agregar la categoria","Error");
       }
     });
   }

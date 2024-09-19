@@ -21,25 +21,14 @@ import { categoria } from '../../../Interfaces/categoria';
   templateUrl: './modal-editar.component.html',
   styleUrl: './modal-editar.component.css'
 })
-export class ModalEditarComponent implements OnInit {
+export class ModalEditarComponent  {
 
   dialogRef= inject(MatDialogRef<ModalEditarComponent>);
   data= inject<categoria>(MAT_DIALOG_DATA);
   categoria = model(this.data);
 
-  constructor(){
-    
-  }
-  ngOnInit(): void {
-    console.log(this.data.nombre);
-    console.log(this.data);
-    console.log(this.categoria)
-  }
+  constructor(){}
   
-  guardarCambios(){
-
-  }
-
   cancelar(){
     this.dialogRef.close();
   }

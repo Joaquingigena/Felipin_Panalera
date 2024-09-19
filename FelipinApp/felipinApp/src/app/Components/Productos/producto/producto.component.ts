@@ -1,12 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-producto',
   standalone: true,
-  imports: [MatButtonModule,RouterLink],
+  imports: [MatButtonModule,RouterLink,MatCardModule,MatGridListModule],
   templateUrl: './producto.component.html',
   styleUrl: './producto.component.css'
 })

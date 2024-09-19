@@ -153,7 +153,7 @@
   {
     "ContainingType": "FelipinPa\u00F1alera.Controllers.MarcaController",
     "Method": "Modificar",
-    "RelativePath": "api/Marca/Modificar",
+    "RelativePath": "api/Marca/Modificar/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -161,7 +161,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "marca",

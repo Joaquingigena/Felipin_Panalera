@@ -1,4 +1,4 @@
-.productoContenedor{
+/* .productoContenedor{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -16,8 +16,12 @@ p {
     font-size: 15px;
     font-weight: bold;
     text-align: center;
-}
+} */
 
 button {
     margin-left: 1rem
 }
+
+.card {
+    max-width: 400px;
+  }
